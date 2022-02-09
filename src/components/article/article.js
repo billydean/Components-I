@@ -87,6 +87,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Another Article Added Today',
+    date: 'Feb 9th, 2022',
+    firstParagraph: 'Wow, just look at this nice paragraph.',
+    secondParagraph: 'Are you kidding me? Is this a second paragraph?',
+    thirdParagraph: 'We really went all out adding a third paragraph into the mix.'
   }
 ];
 
@@ -119,6 +126,7 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
   first.textContent = firstParagraph;
   second.textContent = secondParagraph;
   third.textContent = thirdParagraph;
+  expand.textContent = '+';
   //Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
       // This listener should toggle the class 'article-open' on div.article
   expand.addEventListener('click', event => {
@@ -129,13 +137,10 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
 }
 // Step 4: Outside your function now, loop over the data. At each iteration you'll use your component 
 // to create a div.article element and append it to the DOM inside div.articles (see index.html)
-
 data.forEach(artObj => {
   const articleElem = articleMaker(artObj);
   articles.appendChild(articleElem);
 })
-
-
 
 /*  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.*/
